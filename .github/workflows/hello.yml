@@ -10,10 +10,14 @@ on:
 jobs:
   hello:
     runs-on: ubuntu-latest
+    env:
+      SECRET_NAME: ${{ secrets.SECRET_NAME }}
     steps:
       - uses: actions/checkout@v4
       - name: Hello
         run: echo "Hello ${{ inputs.name }}"
+    env:
+      SECRET_NAME: ${{ secrets.SECRET_NAME }}
   goodbye:
     needs: hello
     runs-on: ubuntu-latest
