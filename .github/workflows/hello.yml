@@ -10,6 +10,7 @@ jobs:
       - name: Hello
         run: echo "Hello World"
   goodbye:
+    needs: hello
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
