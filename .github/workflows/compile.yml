@@ -8,13 +8,7 @@ jobs:
     container: ubuntu:22.04
     steps:
       - uses: actions/checkout@v4
-      - name: Update apt
-        run: |
-          apt-get update -y
-      - name: Update apt 2
-        run: |
-          apt-get update -y
-      - uses: hendrikmuhs/ccache-action@v1.2.19
+      - uses: Andrej730/ccache-action@apt-update
       - name: Install CMake
         run: sudo apt-get update && sudo apt-get install -y cmake
       - name: Configure
