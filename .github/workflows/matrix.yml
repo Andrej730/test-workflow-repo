@@ -4,16 +4,15 @@ on: workflow_dispatch
 
 jobs:
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
-        node: [16, 18]
+        python: ['3.8', '3.9', '3.10']
     steps:
       - uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Python
+        uses: actions/setup-python@v4
         with:
-          node-version: ${{ matrix.node }}
+          python-version: ${{ matrix.python }}
       - name: Test
-        run: echo "Running on ${{ matrix.os }} with Node ${{ matrix.node }}"
+        run: echo "Running with Python ${{ matrix.python }}"
