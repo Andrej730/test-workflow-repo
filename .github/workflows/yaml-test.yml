@@ -1,0 +1,10 @@
+name: yaml-test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run python
+      run: python -c "import yaml"
