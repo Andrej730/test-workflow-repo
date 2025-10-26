@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: Andrej730/ccache-action@apt-update
       - name: Install CMake
-        run: apt-get update && apt-get install -y cmake
+        run: apt-get update && apt-get install -y cmake gcc g++
       - name: Configure
         run: cmake -DCMAKE_C_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER_LAUNCHER=ccache .
       - name: Build
