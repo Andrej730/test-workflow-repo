@@ -1,6 +1,7 @@
 name: Hello World
 
 on:
+  push:
   workflow_dispatch:
     inputs:
       name:
@@ -13,11 +14,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Hello
-        run: echo "Hello ${{ inputs.name }}"
+        run: |
+          NAME="${{ inputs.name }}"
+          if [ -z "$NAME" ]; then NAME="World"; fi
+          echo "Hello $NAME"
   goodbye:
     needs: hello
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Goodbye
-        run: echo "Goodbye ${{ inputs.name }}"
+        run: |
+          NAME="${{ inputs.name }}"
+          if [ -z "$NAME" ]; then NAME="World"; fi
+          echo "Goodbye $NAME"
