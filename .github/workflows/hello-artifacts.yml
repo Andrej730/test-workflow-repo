@@ -1,0 +1,27 @@
+name: Hello Artifacts
+
+on: workflow_dispatch
+
+jobs:
+  produce:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create file
+        run: echo "Hello from artifact" > hello.txt
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello-artifact
+          path: hello.txt
+  consume:
+    needs: produce
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: hello-artifact
+      - name: Consume
+        run: cat hello.txt
