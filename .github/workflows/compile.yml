@@ -7,8 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Print system info
-        run: uname -a && lsb_release -a
       - uses: Andrej730/ccache-action@apt-update
       - name: Install CMake
         run: sudo apt-get update && sudo apt-get install -y cmake
