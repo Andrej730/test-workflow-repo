@@ -15,4 +15,6 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - name: Test
-        run: echo "Running with Python ${{ matrix.python }}"
+        run: |
+          python --version
+          echo "Running with Python ${{ matrix.python }}"
