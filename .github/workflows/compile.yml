@@ -10,8 +10,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Update apt
         run: |
-          echo hi
-          # grep -m1 '^Date:' /var/lib/apt/lists/*InRelease
+          sudo apt-get update -y
       - uses: hendrikmuhs/ccache-action@v1.2.19
       - name: Install CMake
         run: sudo apt-get update && sudo apt-get install -y cmake
