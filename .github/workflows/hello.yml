@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Hello
-        run: echo "Hello ${{ inputs.name }}"
+        run: echo "Hello ${{ inputs.name }}, secret is $SECRET_NAME"
     env:
       SECRET_NAME: ${{ secrets.SECRET_NAME }}
   goodbye:
@@ -24,4 +24,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Goodbye
-        run: echo "Goodbye ${{ inputs.name }}"
+        run: echo "Goodbye ${{ inputs.name }}, secret is $SECRET_NAME"
