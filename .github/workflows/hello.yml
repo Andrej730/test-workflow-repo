@@ -6,6 +6,7 @@ on:
       name:
         description: 'Name to use in messages'
         required: true
+        default: 'World'
 
 jobs:
   hello:
