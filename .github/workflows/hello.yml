@@ -5,7 +5,7 @@ on:
     inputs:
       name:
         description: 'Name to use in messages'
-        required: false
+        required: true
         default: 'World'
 
 jobs:
