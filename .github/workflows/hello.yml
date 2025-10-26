@@ -17,11 +17,11 @@ jobs:
       - uses: actions/checkout@v4
       - name: Hello
         run: echo "Hello ${{ inputs.name }}, secret is $SECRET_NAME"
-    env:
-      SECRET_NAME: ${{ secrets.SECRET_NAME }}
   goodbye:
     needs: hello
     runs-on: ubuntu-latest
+    env:
+      SECRET_NAME: ${{ secrets.SECRET_NAME }}
     steps:
       - uses: actions/checkout@v4
       - name: Goodbye
